@@ -14,7 +14,9 @@
 @media(min-width:1100px){.input-panel{position:sticky;top:24px}}
 @media(max-width:900px){.shell{padding:0 26px}.workspace{gap:18px}.intro{padding-top:35px}h1{font-size:31px}.step-indicator{display:none}.input-content,.result-content{padding:0 18px 20px}.result-content{padding-top:20px}.panel-heading{padding:20px 18px 15px}.shortcut{display:none}.summary{font-size:18px}.facts{grid-template-columns:1fr}.fact:nth-child(odd){border-right:0}.fact:nth-child(n+2){border-top:1px solid var(--line)}}
 @media(max-width:680px){.shell{padding:0 18px}.topbar{height:70px}.brand{font-size:15px}.top-note{font-size:10px}.intro{padding:30px 0 24px}.eyebrow{font-size:9px;letter-spacing:2px}h1{font-size:30px}.intro p:last-child{font-size:12px}.workspace{grid-template-columns:minmax(0,1fr);gap:16px;padding-bottom:22px}.panel{border-radius:13px}.panel-heading{padding-top:18px}.heading-note{font-size:10px}textarea{min-height:220px;font-size:16px}.url-row input{font-size:16px}.input-content{padding-bottom:18px}.mode-tabs{margin-bottom:15px}.mode-tab{min-height:39px}.primary{min-height:48px}.result-panel{min-height:0}.empty{min-height:290px;padding:25px}.empty-graphic{transform:scale(.85);margin-bottom:0}.empty-labels{margin-top:18px}.facts{grid-template-columns:1fr 1fr}.fact:nth-child(odd){border-right:1px solid var(--line)}.fact:nth-child(2){border-top:0}.summary{font-size:19px}.todo{font-size:13px;padding:14px 0}.todo input{width:20px;height:20px}.icon-button{min-height:36px;padding:7px}.quiet{min-height:36px}.helper{padding:12px 2px}.bottom-guide{font-size:10px;flex-wrap:wrap;padding-top:18px;gap:5px}.bottom-guide span:last-child{display:none}.import-area{min-height:260px}.result-panel{scroll-margin-top:15px}.source{font-size:13px}}
-.section-title{gap:9px}.section-title .progress{margin-left:auto}.section-title .icon-button{font-weight:400;white-space:nowrap}
+.section-title{gap:9px}.section-title .progress{margin-left:auto}.section-title .icon-button{font-weight:400;white-space:nowrap}.section-title .icon-button:disabled{cursor:default}
+.notice-action{display:flex;align-items:flex-start;gap:10px;border-bottom:1px solid #f0f0ed}.notice-action .todo{flex:1;min-width:0;border-bottom:0}.notice-action .todo span{min-width:0}.notice-add{border:1px solid var(--line);border-radius:6px;color:#666;font-size:10px;min-width:62px;min-height:32px;padding:5px 7px;margin-top:10px;white-space:nowrap;flex-shrink:0}.notice-add:hover{background:var(--soft);color:#222}.notice-add:disabled{cursor:default;opacity:1;background:none;border-color:transparent;color:#aaa}
+@media(max-width:680px){.notice-action{gap:8px}.notice-add{min-height:44px;min-width:59px;margin-top:5px}.notice-action .todo{gap:9px}}
 .task-nav{text-decoration:none;min-height:40px}.task-nav:hover{color:#222}.task-nav span{padding:0 6px;border-radius:4px;background:#eaeae7;font-size:10px}
 .task-panel{margin:0 0 28px;scroll-margin-top:20px}.task-content{padding:0 24px 19px}.task-form{display:flex;gap:9px;flex-wrap:wrap;margin:0 0 13px}.task-form input{min-height:42px;border:1px solid var(--line);border-radius:8px;padding:9px 12px;background:#fff;color:#333;font-size:13px;min-width:0}.task-form input[type=text]{flex:1;min-width:180px}.task-form input[type=date]{width:151px;color:#777}.task-form input::placeholder{color:#aaa}.task-form .primary{min-height:42px;font-size:12px;padding:8px 19px}.task-form .quiet{padding:8px}.task-empty{font-size:12px;color:#999;margin:20px 0 25px}.event-task{display:flex;align-items:flex-start;gap:12px;padding:14px 0;border-bottom:1px solid var(--soft)}.event-task>input{width:18px;height:18px;accent-color:#333;margin:5px 0 0;flex-shrink:0;cursor:pointer}.task-edit{padding:0;text-align:left;min-width:0;flex:1;cursor:text;line-height:1.85}.task-name{display:block;overflow-wrap:anywhere;font-size:13px}.task-edit:hover .task-name{color:#666}.task-meta{display:flex;flex-wrap:wrap;gap:5px 13px;font-size:10px;color:#999;margin-top:3px}.task-meta .overdue{color:#444;font-weight:600}.is-done .task-name{text-decoration:line-through;color:#aaa}.task-delete{font-size:20px;color:#aaa;line-height:1;min-width:32px;min-height:32px;border-radius:6px}.task-delete:hover{background:var(--soft);color:#333}.completed-tasks{margin-top:10px}.completed-tasks summary{justify-content:flex-start;gap:10px;font-size:11px}.completed-tasks summary:after{font-size:13px}.task-foot{display:flex;align-items:center;justify-content:space-between;font-size:10px;color:#999;gap:10px;padding-top:14px}.task-foot button{font-size:11px;padding:0 4px;text-decoration:underline;text-underline-offset:3px;color:#444}
 @media(max-width:680px){.task-content{padding:0 18px 18px}.task-form{gap:8px}.task-form input[type=text]{flex-basis:100%;font-size:16px}.task-form input[type=date]{font-size:16px;flex:1;width:155px;min-height:44px}.task-form .primary{min-height:44px}.event-task>input{width:21px;height:21px}.task-name{font-size:13px}.task-delete{min-width:36px;min-height:36px}.task-meta{font-size:11px}.section-title .icon-button{font-size:10px}.section-title .progress{font-size:9px}.task-empty{line-height:1.9}.task-foot{flex-wrap:wrap}}
@@ -82,7 +84,7 @@
           <div class="stale" id="staleNotice" hidden>原文已修改，点击「提炼重点」更新结果。</div>
           <div class="result-kicker">这条通知说了什么</div><h3 id="gist" class="summary"></h3>
           <dl class="facts" id="facts"></dl>
-          <div class="section-title"><span>需要做什么</span><span class="progress" id="todoProgress"></span><button id="btnAddTasks" class="icon-button">加入待办</button></div>
+          <div class="section-title"><span>需要做什么</span><span class="progress" id="todoProgress"></span><button id="btnAddTasks" class="icon-button" title="将全部未完成事项加入待办">全部加入</button></div>
           <div id="todos"></div>
           <div class="details">
             <details id="timelineDetail"><summary>全部时间节点<span id="timelineCount"></span></summary><div class="detail-body" id="timeline"></div></details>
@@ -210,6 +212,7 @@ function saveDraft(){
 function changed(){
   $('charCount').textContent=$('src').value.length.toLocaleString()+' 字';
   $('staleNotice').hidden=!lastAnalysis || lastAnalysis.raw===$('src').value.trim();
+  window.dispatchEvent(new Event('notice-edited'));
   clearTimeout(saveTimer);saveTimer=setTimeout(saveDraft,350);
 }
 function setMode(mode){
@@ -243,7 +246,7 @@ function render(A,checks=[]){
   $('gist').textContent=A.title;
   const facts=[[A.date?.label||'关键时间',A.date?.text],['适用对象',A.audience],['地点',A.place],['办理 / 参与方式',A.method]];
   $('facts').innerHTML=facts.map(([key,value])=>`<div class="fact"><dt>${esc(key)}</dt><dd${value?'':' class="missing"'}>${esc(value||'原文未明确提取到')}</dd></div>`).join('');
-  $('todos').innerHTML=A.todos.length?A.todos.map((text,i)=>`<label class="todo"><input type="checkbox" data-i="${i}" ${completed[i]?'checked':''}><span>${esc(text)}</span></label>`).join(''):'<p class="no-action">未提取到明确待办，可展开原文核对具体要求。</p>';
+  $('todos').innerHTML=A.todos.length?A.todos.map((text,i)=>`<div class="notice-action"><label class="todo"><input type="checkbox" data-i="${i}" ${completed[i]?'checked':''}><span>${esc(text)}</span></label><button class="notice-add" type="button" data-add-i="${i}" aria-label="将此事项加入待办：${esc(text)}" title="加入事件待办">＋ 待办</button></div>`).join(''):'<p class="no-action">未提取到明确待办，可展开原文核对具体要求。</p>';
   $('timelineDetail').hidden=!A.timeline.length;
   $('timelineCount').textContent=A.timeline.length?`${A.timeline.length} 项`:'';
   $('timeline').innerHTML=A.timeline.map(item=>`<div class="timeline-item"><b>${esc(item.label)}</b><span>${esc(item.text)}</span></div>`).join('');
@@ -338,6 +341,23 @@ try{
     const dateLabel=task.date?(task.date===today()?'今天':task.date)+(overdue?' · 已逾期':''):'';
     return `<div class="event-task${task.done?' is-done':''}" data-task="${esc(task.id)}"><input type="checkbox" aria-label="${esc((task.done?'标为未完成：':'完成：')+task.text)}" ${task.done?'checked':''}><button class="task-edit" type="button" aria-label="编辑待办：${esc(task.text)}"><span class="task-name">${esc(task.text)}</span>${task.source||dateLabel?`<span class="task-meta">${dateLabel?`<span class="${overdue?'overdue':''}">${esc(dateLabel)}</span>`:''}${task.source?`<span>${esc(task.source)}</span>`:''}</span>`:''}</button><button class="task-delete" type="button" aria-label="删除待办：${esc(task.text)}" title="删除">×</button></div>`;
   }
+  function updateAddButtons(){
+    const A=lastAnalysis,key=A?sourceKey(A.raw):'',stale=!A||A.raw!==$('src').value.trim();
+    let available=0;
+    $('todos').querySelectorAll('[data-add-i]').forEach(button=>{
+      const index=+button.dataset.addI,text=A?.todos[index];
+      const existing=tasks.find(t=>t.sourceKey===key&&t.sourceText===text);
+      const done=!!completed[index]||!!existing?.done;
+      button.disabled=stale||!!existing||done;
+      button.textContent=existing?(done?'已完成':'已加入'):(done?'已完成':'＋ 待办');
+      button.title=stale?'原文已修改，请先重新提炼':existing?'此事项已在事件待办中':done?'此事项已完成':'仅将此事项加入事件待办';
+      button.setAttribute('aria-label',`${stale?'需重新提炼：':existing?(done?'已完成：':'已加入待办：'):done?'已完成：':'加入待办：'}${text||''}`);
+      if(!button.disabled)available++;
+    });
+    $('btnAddTasks').hidden=!A?.todos.length;
+    $('btnAddTasks').disabled=stale||!available;
+    $('btnAddTasks').title=stale?'原文已修改，请先重新提炼':available?'将全部未完成且未加入的事项加入待办':'没有可加入的新事项';
+  }
   function renderTasks(){
     const open=tasks.filter(t=>!t.done).sort((a,b)=>(a.date||'9999-99-99').localeCompare(b.date||'9999-99-99'));
     const done=tasks.filter(t=>t.done);
@@ -347,7 +367,7 @@ try{
     $('taskEmpty').hidden=!!open.length;
     $('taskEmpty').textContent=done.length?'待办都完成了，给自己留一点空闲。':'暂时没有待办。记下一件事，或把通知里的行动加入这里。';
     $('completedTasks').hidden=!done.length;$('completedTitle').textContent=`已完成 ${done.length}`;
-    $('btnAddTasks').hidden=!lastAnalysis?.todos.length;
+    updateAddButtons();
   }
   function resetForm(){editing=null;$('taskForm').reset();$('taskSubmit').textContent='添加';$('taskCancel').hidden=true;}
   function syncNotice(task){
@@ -392,24 +412,44 @@ try{
     });
   }
   $('undoTask').addEventListener('click',()=>{
-    if(!deleted)return;tasks.splice(deleted.index,0,deleted.task);deleted=null;$('taskUndo').hidden=true;persist();renderTasks();$('taskStatus').textContent='已撤销删除。';$('taskText').focus({preventScroll:true});
+    if(!deleted)return;
+    const old=deleted.task;
+    const exists=tasks.find(task=>task.id===old.id||(old.sourceKey?task.sourceKey===old.sourceKey&&task.sourceText===old.sourceText:!task.sourceKey&&task.text===old.text&&task.date===old.date));
+    if(!exists)tasks.splice(deleted.index,0,old);
+    syncNotice(exists||old);
+    deleted=null;$('taskUndo').hidden=true;persist();renderTasks();$('taskStatus').textContent=exists?'该事项已重新加入，无需恢复。':'已撤销删除。';$('taskText').focus({preventScroll:true});
   });
-  $('btnAddTasks').addEventListener('click',()=>{
+  function addNoticeTasks(indices){
     if(!lastAnalysis||lastAnalysis.raw!==$('src').value.trim()){toast('原文已修改，请先更新重点。');return;}
     const key=sourceKey(lastAnalysis.raw);let count=0;
-    lastAnalysis.todos.forEach((text,index)=>{
+    indices.forEach(index=>{
+      const text=lastAnalysis.todos[index];if(!text)return;
       if(completed[index]||tasks.some(t=>t.sourceKey===key&&t.sourceText===text))return;
       tasks.push({id:crypto.randomUUID(),text,date:'',done:false,source:lastAnalysis.title,sourceKey:key,sourceText:text});count++;
     });
-    if(count){persist();renderTasks();toast(`已加入 ${count} 项待办`);$('taskPanel').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});}
+    if(count){persist();renderTasks();toast(count===1?'已加入待办':`已加入 ${count} 项待办`);}
     else toast('没有新的未完成事项可加入。');
+  }
+  $('btnAddTasks').addEventListener('click',()=>{
+    addNoticeTasks(lastAnalysis?.todos.map((_,index)=>index)||[]);
+  });
+  $('todos').addEventListener('click',e=>{
+    const button=e.target.closest('[data-add-i]');if(!button||button.disabled)return;
+    const index=+button.dataset.addI;
+    addNoticeTasks([index]);
+    if(button.disabled){
+      const next=$('todos').querySelector('[data-add-i]:not(:disabled)')||$('todos').querySelector(`input[data-i="${index}"]`);
+      next?.focus({preventScroll:true});
+    }
   });
   $('todos').addEventListener('change',e=>{
     if(!e.target.matches('input')||!lastAnalysis)return;
     const text=lastAnalysis.todos[+e.target.dataset.i],key=sourceKey(lastAnalysis.raw);
     const task=tasks.find(t=>t.sourceKey===key&&t.sourceText===text);
     if(task){task.done=e.target.checked;persist();renderTasks();}
+    else updateAddButtons();
   });
+  window.addEventListener('notice-edited',updateAddButtons);
   window.addEventListener('notice-rendered',()=>{
     const key=sourceKey(lastAnalysis.raw);
     tasks.forEach(task=>{if(task.sourceKey===key)syncNotice(task);});renderTasks();

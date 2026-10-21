@@ -33,24 +33,24 @@
     line-height:1.7;
     min-height:100vh;
   }
-  .wrap{max-width:980px;margin:0 auto;padding:28px 20px 80px;}
+  .wrap{max-width:980px;margin:0 auto;padding:20px 20px 60px;}
 
   /* ---------- header ---------- */
   header{display:flex;align-items:center;gap:14px;margin-bottom:6px;}
   .logo{
-    width:48px;height:48px;border-radius:14px;flex:none;
+    width:44px;height:44px;border-radius:12px;flex:none;
     background:linear-gradient(135deg,#4f6ef7,#7a5cf0);
     display:flex;align-items:center;justify-content:center;
-    font-size:24px;color:#fff;box-shadow:0 6px 16px rgba(79,110,247,.35);
+    font-size:22px;color:#fff;box-shadow:0 6px 16px rgba(79,110,247,.35);
   }
-  h1{font-size:24px;letter-spacing:.5px;}
+  h1{font-size:22px;letter-spacing:.5px;}
   h1 small{display:block;font-size:12px;font-weight:400;color:var(--ink-3);letter-spacing:2px;margin-top:2px;}
-  .tagline{color:var(--ink-2);font-size:14px;margin:10px 0 22px;}
+  .tagline{color:var(--ink-2);font-size:14px;margin:6px 0 18px;}
   .tagline b{color:var(--primary);}
 
   /* ---------- steps ---------- */
   .step-label{
-    display:flex;align-items:center;gap:10px;margin:26px 0 12px;
+    display:flex;align-items:center;gap:10px;margin:20px 0 10px;
     font-weight:600;font-size:15px;
   }
   .step-num{
@@ -66,7 +66,7 @@
   /* ---------- input ---------- */
   .input-panel{padding:16px;}
   textarea{
-    width:100%;height:230px;resize:vertical;
+    width:100%;height:200px;resize:vertical;
     border:1px solid var(--line);border-radius:12px;
     padding:14px 16px;font-size:14px;line-height:1.8;
     font-family:inherit;color:var(--ink);background:#fbfcfe;
@@ -168,22 +168,22 @@
   /* ---------- results ---------- */
   #results{display:none;}
   .result-banner{
-    display:flex;align-items:center;gap:16px;
-    margin:30px 0 16px;
+    display:flex;align-items:center;gap:12px;
+    margin:24px 0 14px;
     background:linear-gradient(120deg,#4f6ef7 0%,#7a5cf0 60%,#9a54e8 100%);
-    border-radius:var(--radius);padding:18px 26px;
-    color:#fff;box-shadow:0 8px 24px rgba(79,110,247,.35);
+    border-radius:var(--radius);padding:13px 20px;
+    color:#fff;box-shadow:0 6px 20px rgba(79,110,247,.3);
   }
   .result-banner .rb-icon{
-    width:52px;height:52px;border-radius:14px;flex:none;
+    width:42px;height:42px;border-radius:12px;flex:none;
     background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4);
-    display:flex;align-items:center;justify-content:center;font-size:26px;
+    display:flex;align-items:center;justify-content:center;font-size:21px;
   }
-  .result-banner h2{font-size:21px;letter-spacing:1.5px;}
+  .result-banner h2{font-size:19px;letter-spacing:1px;}
   .result-banner h2 small{font-weight:400;opacity:.8;font-size:12px;letter-spacing:2px;display:block;margin-top:1px;}
   .result-banner .sub{font-size:12.5px;opacity:.9;font-weight:400;margin-left:auto;text-align:right;}
 
-  .board{display:flex;flex-direction:column;gap:20px;}
+  .board{display:flex;flex-direction:column;gap:16px;}
   .pane{
     padding:24px 26px;position:relative;overflow:hidden;
     border-top:4px solid var(--primary);
@@ -310,7 +310,7 @@
 
   /* ---------- original text annotation ---------- */
   .anno-toggle{
-    display:flex;align-items:center;gap:10px;margin:30px 0 12px;
+    display:flex;align-items:center;gap:10px;margin:24px 0 10px;
     font-size:14px;color:var(--ink-2);cursor:pointer;user-select:none;
   }
   .anno-toggle input{accent-color:var(--primary);width:16px;height:16px;cursor:pointer;}
@@ -405,10 +405,10 @@
     <div class="logo">🎯</div>
     <h1>通知视译<small>CAMPUS&nbsp;NOTICE&nbsp;DECODER</small></h1>
   </header>
-  <p class="tagline">把<b>又长又散的校园通知</b>，一键转译成「<b>讲了什么事 · 要做什么 · 得失与注意</b>」三张看得懂的卡片，附带原文智能标注——从此不再漏掉 deadline。<br>三种输入方式：<b>粘贴文本</b> · <b>甩链接</b>（微信文章等） · <b>传图/截图 OCR 识别</b></p>
+  <p class="tagline">粘贴 · 链接 · 截图 → 一键提炼「<b>什么事 · 做什么 · 得失注意</b>」</p>
 
   <!-- step 1 : input -->
-  <div class="step-label"><span class="step-num">1</span>输入通知（文本 / 链接 / 图片）</div>
+  <div class="step-label"><span class="step-num">1</span>输入通知</div>
   <div class="card input-panel">
     <div class="mode-tabs">
       <button class="mode-tab active" data-mode="text">📝 文本粘贴</button>
@@ -418,7 +418,7 @@
 
     <!-- 文本模式 -->
     <div id="panel-text">
-      <textarea id="src" placeholder="把班级群里收到的通知全文粘贴到这里……&#10;&#10;支持：比赛 / 讲座 / 活动报名 / 选课 / 体检 / 缴费 等各类校园通知&#10;（无需联网，本地分析，内容不上传）"></textarea>
+      <textarea id="src" placeholder="把通知原文粘贴到这里…（本地分析，不上传）"></textarea>
     </div>
 
     <!-- 链接模式 -->
@@ -428,14 +428,13 @@
         <button class="btn-primary" id="btnFetch">🌐 抓取内容</button>
       </div>
       <div class="fetch-status" id="fetchStatus"></div>
-      <div class="ocr-note">提示：抓取经由公共代理进行，学校官网、教务/书院通知页等普通网页通常可直接读取；微信公众号文章常带防盗验证，若抓取失败，请<b>截图后改用「图片识别」</b>。</div>
+      <div class="ocr-note">普通网页可直接抓取；微信文章需截图识别</div>
     </div>
 
     <!-- 图片模式 -->
     <div id="panel-image" style="display:none">
       <div class="dropzone" id="dropzone">
-        <b>点击选择图片（可多选）</b> · 拖拽多张到此处 · 或直接 <b>Ctrl + V</b> 连续粘贴截图<br>
-        支持 JPG / PNG / WEBP，通知海报、群聊截图、网页长截图都可以，多张会按顺序合并识别
+        <b>点击 / 拖入 / Ctrl+V 粘贴</b>截图，可多张，按顺序合并识别
       </div>
       <input type="file" id="fileInput" accept="image/*" multiple style="display:none">
       <div class="img-list" id="imgList"></div>
@@ -443,13 +442,13 @@
         <div class="track"><div class="fill" id="ocrFill"></div></div>
         <div class="txt" id="ocrTxt">准备中…</div>
       </div>
-      <div class="ocr-note">识别在浏览器本地完成（首次需下载约 15MB 中文识别模型），图片不会上传服务器。海报上的艺术字体可能识别率偏低，识别后可手动修正。</div>
+      <div class="ocr-note">本地识别不上传；首次需下载约 15MB 中文模型</div>
     </div>
 
     <div class="input-hint">
       <span class="char-count" id="charCount">0 字</span>
       <div class="btn-row">
-        <button class="btn-ghost" id="btnDemo">📋 载入示例：志闻杯通知</button>
+        <button class="btn-ghost" id="btnDemo">📋 载入示例</button>
         <button class="btn-clear" id="btnClear">清空</button>
         <button class="btn-primary" id="btnGo">⚡ 开始转译</button>
       </div>
@@ -460,7 +459,7 @@
   <div id="results">
     <div class="result-banner">
       <div class="rb-icon">⚡</div>
-      <h2>转译结果<small>TRANSLATED&nbsp;RESULT</small></h2>
+      <h2>转译结果</h2>
       <span class="sub" id="metaInfo"></span>
     </div>
 
@@ -470,7 +469,7 @@
       <div class="card pane p1">
         <div class="pane-head">
           <div class="pane-icon">🧭</div>
-          <div class="pane-title">这是件什么事？<small>通知概要速览</small></div>
+          <div class="pane-title">这是件什么事？<small>速览</small></div>
           <button class="copy-btn" data-copy="pane1">复制</button>
         </div>
         <div class="gist" id="gist"></div>
@@ -485,7 +484,7 @@
       <div class="card pane p2">
         <div class="pane-head">
           <div class="pane-icon">✅</div>
-          <div class="pane-title">你要做什么？<small>勾掉一项少一项，deadline 标红</small></div>
+          <div class="pane-title">你要做什么？<small>做一项勾一项</small></div>
           <button class="copy-btn" data-copy="pane2">复制</button>
         </div>
         <div class="todo-list" id="todos"></div>
@@ -495,7 +494,7 @@
       <div class="card pane p3">
         <div class="pane-head">
           <div class="pane-icon">⚖️</div>
-          <div class="pane-title">好处、代价与注意事项<small>参加之前先掂量一下</small></div>
+          <div class="pane-title">得失与注意<small>参加前掂量一下</small></div>
           <button class="copy-btn" data-copy="pane3">复制</button>
         </div>
         <div class="gd-grid">
@@ -508,7 +507,7 @@
             <ul id="warnList"></ul>
           </div>
           <div class="gd-col gd-risk" id="riskBox" style="display:none">
-            <h4>❌ 风险 / 代价（做错会怎样）</h4>
+            <h4>❌ 风险 / 代价</h4>
             <ul id="riskList"></ul>
           </div>
         </div>
@@ -518,7 +517,7 @@
     <!-- annotated original -->
     <label class="anno-toggle">
       <input type="checkbox" id="annoSwitch">
-      <span><b>查看原文智能标注</b>（黄色=要做的事 · 橙色=时间 · 绿色=好处 · 红色=风险）</span>
+      <span><b>原文智能标注</b>（黄=要做 · 橙=时间 · 绿=好处 · 红=风险）</span>
       <span class="legend">
         <span><i style="background:#fff1c2"></i>行动</span>
         <span><i style="background:#fde3c8"></i>时间</span>
@@ -530,7 +529,7 @@
 
   </div>
 
-  <footer>通知视译 · 校园通知视觉转译器 —— 纯前端本地运行，通知内容不会上传服务器 · 建议转译结果仍以原文为准</footer>
+  <footer>通知视译 · 本地运行不上传 · 结果以原文为准</footer>
 </div>
 
 <script>

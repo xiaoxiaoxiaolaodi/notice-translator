@@ -21,6 +21,8 @@
 .task-panel{margin:0 0 28px;scroll-margin-top:20px}.task-content{padding:0 24px 19px}.task-form{display:flex;gap:9px;flex-wrap:wrap;margin:0 0 13px}.task-form input{min-height:42px;border:1px solid var(--line);border-radius:8px;padding:9px 12px;background:#fff;color:#333;font-size:13px;min-width:0}.task-form input[type=text]{flex:1;min-width:180px}.task-form input[type=date]{width:151px;color:#777}.task-form input::placeholder{color:#aaa}.task-form .primary{min-height:42px;font-size:12px;padding:8px 19px}.task-form .quiet{padding:8px}.task-empty{font-size:12px;color:#999;margin:20px 0 25px}.event-task{display:flex;align-items:flex-start;gap:12px;padding:14px 0;border-bottom:1px solid var(--soft)}.event-task>input{width:18px;height:18px;accent-color:#333;margin:5px 0 0;flex-shrink:0;cursor:pointer}.task-edit{padding:0;text-align:left;min-width:0;flex:1;cursor:text;line-height:1.85}.task-name{display:block;overflow-wrap:anywhere;font-size:13px}.task-edit:hover .task-name{color:#666}.task-meta{display:flex;flex-wrap:wrap;gap:5px 13px;font-size:10px;color:#999;margin-top:3px}.task-meta .overdue{color:#444;font-weight:600}.is-done .task-name{text-decoration:line-through;color:#aaa}.task-delete{font-size:20px;color:#aaa;line-height:1;min-width:32px;min-height:32px;border-radius:6px}.task-delete:hover{background:var(--soft);color:#333}.completed-tasks{margin-top:10px}.completed-tasks summary{justify-content:flex-start;gap:10px;font-size:11px}.completed-tasks summary:after{font-size:13px}.task-foot{display:flex;align-items:center;justify-content:space-between;font-size:10px;color:#999;gap:10px;padding-top:14px}.task-foot button{font-size:11px;padding:0 4px;text-decoration:underline;text-underline-offset:3px;color:#444}
 @media(max-width:680px){.task-content{padding:0 18px 18px}.task-form{gap:8px}.task-form input[type=text]{flex-basis:100%;font-size:16px}.task-form input[type=date]{font-size:16px;flex:1;width:155px;min-height:44px}.task-form .primary{min-height:44px}.event-task>input{width:21px;height:21px}.task-name{font-size:13px}.task-delete{min-width:36px;min-height:36px}.task-meta{font-size:11px}.section-title .icon-button{font-size:10px}.section-title .progress{font-size:9px}.task-empty{line-height:1.9}.task-foot{flex-wrap:wrap}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+.link-tools{margin-top:18px;border-top:1px solid var(--line)}.link-tools summary,.reader-tools summary{font-size:11px}.link-tools-body{padding-bottom:8px}.import-tools-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.import-tools-row a{text-decoration:none}.reader-tools{margin-top:9px;border-top:1px solid var(--line)}.reader-tools summary{color:#555}.reader-tools .ocr-note{margin:3px 0 12px}.import-preview{margin-top:18px;border:1px solid var(--line);border-radius:9px;padding:13px}.preview-title{font-size:12px;font-weight:600}.import-preview textarea{min-height:190px;max-height:360px;padding:10px 0;margin:7px 0 12px;font-size:13px;border-bottom:1px solid var(--line)}.import-preview .primary{min-height:38px;font-size:12px}.import-tools-row .icon-button{min-height:36px}.reader-tools .icon-button{color:#222;background:#f6f6f3}#importSource a{color:#666;text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}#readerHelperStatus:empty{display:none}
+@media(max-width:680px){.import-preview textarea{font-size:16px}.import-tools-row .icon-button{min-height:42px}.import-preview .primary{min-height:44px}.link-tools summary,.reader-tools summary{min-height:44px}}
 
 </style>
 </head>
@@ -54,17 +56,23 @@
             <button class="mode-tab" id="tab-image" role="tab" aria-selected="false" aria-controls="panel-image" tabindex="-1" data-mode="image"><svg aria-hidden="true"><use href="#i-image"/></svg>识别截图</button>
           </div>
           <div id="panel-text" role="tabpanel" aria-labelledby="tab-text">
-            <div class="editor"><textarea id="src" aria-label="通知原文" placeholder="在这里粘贴通知原文…&#10;&#10;报名通知、课程安排、奖学金申请，&#10;都可以试一试。" spellcheck="false" maxlength="50000"></textarea><div class="editor-bottom"><span id="charCount">0 字</span><button class="quiet" id="btnClear">清空</button></div></div>
+            <div class="editor"><textarea id="src" aria-label="通知原文" placeholder="在这里粘贴通知原文…&#10;&#10;报名通知、课程安排、奖学金申请，&#10;都可以试一试。" spellcheck="false" maxlength="200000"></textarea><div class="editor-bottom"><span id="charCount">0 字</span><button class="quiet" id="btnClear">清空</button></div></div>
             <div class="helper"><span id="draftHint">文字在本地处理</span><button id="btnDemo">试试示例 ↗</button></div>
             <button class="primary convert" id="btnGo"><span>提炼重点</span><kbd class="shortcut" id="shortcut">Ctrl ↵</kbd><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
             <p class="input-note"><svg aria-hidden="true"><use href="#i-lock"/></svg>文本分析无需联网，不上传通知内容</p>
           </div>
           <div id="panel-link" class="import-area" role="tabpanel" aria-labelledby="tab-link" style="display:none">
             <label for="urlInput" class="eyebrow" style="display:block;margin-top:24px">通知链接</label>
-            <div class="url-row"><input id="urlInput" type="url" placeholder="https://…" aria-label="通知链接"><button class="primary" id="btnFetch">读取链接</button></div>
+            <div class="url-row"><input id="urlInput" type="text" inputmode="url" placeholder="粘贴链接，或带链接的分享文字" aria-label="通知链接或分享文字" spellcheck="false"><button class="primary" id="btnFetch">读取并提炼</button></div>
             <div class="fetch-status" id="fetchStatus" role="status"></div>
-            <p class="ocr-note">链接将交给第三方网页读取服务处理。仅支持公开页面；微信文章或需要登录的页面，建议复制正文或上传截图。</p>
-            <p class="ocr-note">读取后可先核对正文，再提炼重点。</p>
+            <p class="ocr-note">支持公开网页和文章。自动读取使用第三方服务；需要登录或验证时，可从已打开的原文继续导入。</p>
+            <details class="link-tools" id="linkTools"><summary>其他导入方式</summary><div class="link-tools-body">
+              <div class="import-tools-row"><a class="icon-button" id="openSourceLink" href="#" target="_blank" rel="noopener noreferrer" hidden>打开原文 ↗</a><button class="icon-button" id="pasteLinkText" type="button">粘贴正文</button><button class="icon-button" id="choosePageFile" type="button">导入网页文件</button></div>
+              <input id="pageFileInput" type="file" accept=".html,.htm,.txt,.md,text/html,text/plain,text/markdown" hidden>
+              <p class="ocr-note">手机：在原文复制通知内容，回来点“粘贴正文”。电脑也可导入保存的 HTML / TXT 文件。</p>
+              <details class="reader-tools"><summary>从已打开的网页一键导入（电脑）</summary><p class="ocr-note">把下方入口拖到浏览器收藏栏。正常打开原文后，点该收藏，正文会回到本站，核对后确认导入；可先选中所需段落。</p><div class="import-tools-row"><a class="icon-button" id="readerBookmark" href="#">通知转待办</a><button class="quiet" id="copyReaderCode" type="button">复制收藏代码</button></div><p class="ocr-note" id="readerHelperStatus" role="status"></p></details>
+            </div></details>
+            <div id="importPreview" class="import-preview" hidden><div class="preview-title">确认正文</div><p class="ocr-note" id="previewInfo" role="status"></p><textarea id="importedText" maxlength="200000" aria-label="导入正文预览，可修改" spellcheck="false"></textarea><div class="import-tools-row"><button class="primary" id="btnUseImported" type="button">确认并提炼</button><button class="quiet" id="btnDiscardImported" type="button">取消</button></div></div>
           </div>
           <div id="panel-image" class="import-area" role="tabpanel" aria-labelledby="tab-image" style="display:none">
             <button class="dropzone" id="dropzone"><svg aria-hidden="true"><use href="#i-image"/></svg><b>点击上传，或拖入通知截图</b><span>支持多张图片，也可直接粘贴</span></button>
@@ -75,6 +83,7 @@
             <p class="ocr-note">图片在浏览器内识别，不上传。首次使用需联网下载识别组件和中文模型；识别后请核对日期、数字和姓名。</p>
           </div>
           <p id="inputStatus" class="status" role="status"></p>
+          <p class="ocr-note" id="importSource" hidden>导入来源：<a id="importSourceLink" href="#" target="_blank" rel="noopener noreferrer"></a></p>
         </div>
       </section>
       <section class="panel result-panel" id="resultPanel" aria-labelledby="result-title">
@@ -309,7 +318,7 @@ $('btnDownload').addEventListener('click',()=>{
 try{
   const draft=JSON.parse(localStorage.getItem(DRAFT_KEY)||'null');
   if(draft && typeof draft.text==='string'){
-    $('src').value=draft.text.slice(0,50000);$('charCount').textContent=$('src').value.length.toLocaleString()+' 字';$('draftHint').textContent='已恢复此浏览器的草稿';
+    $('src').value=draft.text.slice(0,200000);$('charCount').textContent=$('src').value.length.toLocaleString()+' 字';$('draftHint').textContent='已恢复此浏览器的草稿';
     if(draft.analyzed && $('src').value.trim().length>=10)render(NoticeEngine.analyze($('src').value),Array.isArray(draft.completed)?draft.completed:[]);
   }
 }catch{}
@@ -462,56 +471,229 @@ try{
 </script>
 <script>
 'use strict';
-/* Link services receive only the URL supplied by the visitor. OCR stays in-browser. */
-let importGeneration=0;
-const PROXIES=[
-  {name:'Jina Reader',build:u=>'https://r.jina.ai/'+u},
-  {name:'AllOrigins',build:u=>'https://api.allorigins.win/raw?url='+encodeURIComponent(u)},
-];
+/* Automatic reading for public pages; visible-page and file import for user-authorized content. */
+let importGeneration=0,linkRead=null,pendingImport=null,lastLinkUrl='';
+const MAX_IMPORT_LENGTH=200000;
+class LinkImportError extends Error{
+  constructor(code,message){super(message||code);this.name='LinkImportError';this.code=code;}
+}
+function extractNoticeUrl(value){
+  const input=String(value||'').replace(/&amp;/gi,'&').trim();
+  let found=input.match(/\[[^\]]*\]\((https?:\/\/[^\s]+)\)/i)?.[1]||input.match(/https?:\/\/[^\s<>"'\u200b\]]+/i)?.[0];
+  if(!found && /^(?:www\.)?[a-z\d][a-z\d.-]+\.[a-z]{2,}(?:[/:?#]|$)/i.test(input))found='https://'+input.split(/\s/)[0];
+  if(!found)throw new LinkImportError('url','请粘贴通知链接，或带链接的分享文字。');
+  found=found.replace(/[，。；：！？、》】」』）>.,;!?]+$/g,'');
+  while(found.endsWith(')')&&(found.match(/\)/g)||[]).length>(found.match(/\(/g)||[]).length)found=found.slice(0,-1);
+  // Chat messages sometimes append a Chinese sentence without a space.
+  found=found.split(/[，。；！？、》】」』]/)[0];
+  let parsed;try{parsed=new URL(found);}catch{throw new LinkImportError('url','没有识别到有效网址，请检查链接是否完整。');}
+  if(!/^https?:$/.test(parsed.protocol)||parsed.username||parsed.password)throw new LinkImportError('url','请选择不包含账号或密码的网页链接。');
+  if(parsed.hostname==='mp.weixin.qq.com'){
+    for(const key of ['qq_aio_chat_type','from','isappinstalled','scene','subscene','clicktime','enterid','ascene'])parsed.searchParams.delete(key);
+  }
+  return parsed.href;
+}
+function isInternalUrl(url){
+  const host=new URL(url).hostname.toLowerCase();
+  return /^(?:localhost|127\.|0\.|10\.|169\.254\.|192\.168\.|\[?::1\]?$)/.test(host)||/^172\.(?:1[6-9]|2\d|3[01])\./.test(host)||/\.(?:local|localhost)$/.test(host)||!host.includes('.');
+}
+function cleanMarkdown(raw){
+  let content=String(raw||'');
+  const start=content.indexOf('Markdown Content:');if(start>=0)content=content.slice(start+'Markdown Content:'.length);
+  return content.replace(/!\[([^\]]*)\]\([^)]*\)/g,(_,alt)=>alt?'\n'+alt+'\n':'')
+    .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,(_,label,url)=>label===url?url:`${label}（${url}）`)
+    .replace(/^\s*#{1,6}\s*/gm,'').replace(/^\s*[-=]{3,}\s*$/gm,'').replace(/\*\*([^*]+)\*\*/g,'$1')
+    .replace(/\n{3,}/g,'\n\n').trim();
+}
 function htmlToText(html){
   const doc=new DOMParser().parseFromString(html,'text/html');
-  doc.querySelectorAll('script,style,noscript,iframe,nav,footer,header').forEach(n=>n.remove());
-  const body=doc.querySelector('#js_content,.rich_media_content,article,main')||doc.body;
-  const title=doc.querySelector('#activity-name,h1')?.textContent.trim()||'';
+  const title=(doc.querySelector('#activity-name,article h1,h1')?.textContent||doc.querySelector('meta[property="og:title"]')?.content||doc.title||'').trim();
+  const candidates=[...doc.querySelectorAll('#js_content,.rich_media_content,article,[role="main"],main,.article-content,.article_content,.content-detail,.v_news_content')];
+  const chosen=candidates.sort((a,b)=>(b.textContent||'').length-(a.textContent||'').length)[0]||doc.body;
+  const body=chosen.cloneNode(true);
+  body.querySelectorAll('script,style,noscript,iframe,nav,footer,aside,form,button,svg').forEach(n=>n.remove());
   body.querySelectorAll('br').forEach(n=>n.replaceWith('\n'));
   body.querySelectorAll('p,div,li,h1,h2,h3,h4,section,tr,blockquote').forEach(n=>n.append('\n'));
-  let text=body.textContent||'';
-  if(title&&!text.includes(title))text=title+'\n'+text;
-  return text.replace(/\u00a0/g,' ').replace(/[ \t]+/g,' ').replace(/\n{3,}/g,'\n\n').trim();
+  let text=(body.textContent||'').replace(/\u00a0/g,' ').replace(/[ \t]+/g,' ').replace(/\n[ \t]+/g,'\n').replace(/\n{3,}/g,'\n\n').trim();
+  const actualBody=text.split('\n').map(line=>line.trim()).filter(line=>line&&line!==title&&!/^(?:loading[.\s…]*|正在加载[.\s…]*|加载中[.\s…]*|请稍候[.\s…]*|please wait[.\s…]*)$/i.test(line)).join('\n');
+  if(!actualBody)throw new LinkImportError('empty','页面正文尚未加载。');
+  if(title&&!text.includes(title))text=title+'\n\n'+text;
+  return text;
 }
-function cleanMarkdown(text){
-  const content=text.includes('Markdown Content:')?text.split('Markdown Content:').slice(1).join('Markdown Content:'):text;
-  return content.replace(/!\[[^\]]*\]\([^)]*\)/g,'').replace(/\[([^\]]*)\]\([^)]*\)/g,'$1').replace(/^\s*#{1,6}\s*/gm,'').replace(/^\s*[-=]{3,}\s*$/gm,'').replace(/\n{3,}/g,'\n\n').trim();
+function parseImportedPage(raw,type='text/plain'){
+  if(/application\/(?:json|problem\+json)/i.test(type)){
+    try{const data=JSON.parse(raw);if(data.error||data.message||data.code)throw new LinkImportError('unavailable','读取服务暂时不可用。');}catch(e){if(e instanceof LinkImportError)throw e;}
+  }
+  const looksHtml=/text\/html/i.test(type)||/<(?:!doctype|html|body|article)[\s>]/i.test(raw);
+  const readerWarning=/^Warning:[^\n]*(?:CAPTCHA|requiring.*(?:login|auth)|access denied)/im.test(raw);
+  const text=looksHtml?htmlToText(raw):cleanMarkdown(raw);
+  const short=text.length<1400;
+  const verification=readerWarning||(/^\s*(?:环境异常|安全验证|访问验证|人机验证)(?:\s|$)/.test(text)&&short)||
+    (short&&/(?:完成验证后即可继续访问|请完成(?:安全|人机)验证|verify (?:that )?you (?:are|are a) (?:human|not a robot)|please verify you are human|checking your browser|performing security verification|complete the security check|enable javascript and cookies to continue)/i.test(text));
+  if(verification)throw new LinkImportError('verification','原网页要求访问验证。');
+  const auth=short&&(/^(?:登录|账号登录|用户登录|sign in|log in)(?:\s|$)/i.test(text))&&/(?:账号|密码|password|sign in to continue|log in to view|登录后查看|请先完成身份认证)/i.test(text);
+  if(auth)throw new LinkImportError('login','原网页需要登录后查看。');
+  if(short&&/^(?:access denied|403 forbidden|404 not found|just a moment|页面不存在|文章已被删除|该内容已被发布者删除|链接已过期|内容已删除)(?:\s|$|[.!。])/i.test(text))throw new LinkImportError('blocked','原网页不可直接访问或内容已失效。');
+  if(text.length<5)throw new LinkImportError('empty','没有读取到正文，页面可能需要加载后才能查看。');
+  if(text.length>MAX_IMPORT_LENGTH)throw new LinkImportError('long','网页内容较多，请打开原文后选中需要的通知正文导入。');
+  // Keep the actual article title rather than the Reader wrapper title.
+  const title=looksHtml?'':raw.match(/^Title:\s*(.+)$/m)?.[1]?.trim();
+  const result=title&&!text.startsWith(title)&&!/^https?:/i.test(title)?title+'\n\n'+text:text;
+  if(result.length>MAX_IMPORT_LENGTH)throw new LinkImportError('long','网页内容较多，请选中通知正文导入。');
+  return result;
 }
-async function fetchText(url){
-  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),12000);
-  try{const response=await fetch(url,{signal:controller.signal});if(!response.ok)throw Error('读取失败');return await response.text();}
-  finally{clearTimeout(timer);}
+function decodeImportedBytes(buffer,type=''){
+  const bytes=new Uint8Array(buffer);
+  if(bytes[0]===0xff&&bytes[1]===0xfe)return new TextDecoder('utf-16le').decode(bytes);
+  if(bytes[0]===0xfe&&bytes[1]===0xff)return new TextDecoder('utf-16be').decode(bytes);
+  const prefix=new TextDecoder('windows-1252').decode(bytes.slice(0,4096));
+  const encoding=type.match(/charset\s*=\s*["']?([\w-]+)/i)?.[1]||prefix.match(/<meta[^>]+charset\s*=\s*["']?([\w-]+)/i)?.[1];
+  if(encoding){try{return new TextDecoder(encoding).decode(bytes);}catch{}}
+  try{return new TextDecoder('utf-8',{fatal:true}).decode(bytes);}catch{return new TextDecoder('gb18030').decode(bytes);}
 }
-$('btnFetch').addEventListener('click',async()=>{
-  const status=$('fetchStatus');status.style.display='block';
-  let url=$('urlInput').value.trim();
-  try{if(!url)throw Error();if(!/^https?:\/\//i.test(url))url='https://'+url;const parsed=new URL(url);if(!/^https?:$/.test(parsed.protocol)||!parsed.hostname.includes('.'))throw Error();url=parsed.href;}
-  catch{status.textContent='请输入有效的公开网页链接。';return;}
-  const generation=importGeneration,draft=$('src').value;
-  $('btnFetch').disabled=true;
+async function fetchPageText(url,{signal,timeout=25000,headers={},method='GET',body}={}){
+  const ctrl=new AbortController();let timedOut=false;
+  const abort=()=>ctrl.abort();signal?.addEventListener('abort',abort,{once:true});
+  if(signal?.aborted)ctrl.abort();
+  const timer=setTimeout(()=>{timedOut=true;ctrl.abort();},timeout);
   try{
-    for(const proxy of PROXIES){
-      if(generation!==importGeneration)return;
-      status.textContent='正在读取网页，请稍候…';
-      try{
-        const raw=await fetchText(proxy.build(url));
-        if(generation!==importGeneration)return;
-        const text=(/<html|<!doctype|<article|<body/i.test(raw)?htmlToText(raw):cleanMarkdown(raw)).trim();
-        if(text.length<20||/环境异常|完成验证后即可|Access Denied|Checking your browser/i.test(text))continue;
-        if(text.length>50000){status.textContent='网页内容过长，请复制通知正文后粘贴。';return;}
-        if($('src').value!==draft){status.textContent='你已编辑正文，本次读取未覆盖内容。需要时请重新读取。';return;}
-        fillText(text);status.textContent='网页正文已载入。';return;
-      }catch{}
+    const response=await fetch(url,{signal:ctrl.signal,credentials:'omit',headers,method,body});
+    if(!response.ok){
+      if(response.status===429)throw new LinkImportError('limited','读取服务访问频繁，请稍后重试。');
+      if(response.status===401||response.status===403)throw new LinkImportError('blocked','该网页未允许自动读取。');
+      throw new LinkImportError('unavailable',`读取服务返回 ${response.status}。`);
     }
-    status.textContent='未能读取此页面。请复制正文或上传截图；微信文章和需要登录的页面通常无法直接导入。';
-  }finally{$('btnFetch').disabled=false;}
+    const type=response.headers.get('content-type')||'';
+    if(/application\/pdf|^image\//i.test(type))throw new LinkImportError('format','正在尝试转换附件正文。');
+    const raw=decodeImportedBytes(await response.arrayBuffer(),type);
+    return parseImportedPage(raw,type);
+  }catch(e){
+    if(signal?.aborted)throw new LinkImportError('cancelled','已取消读取。');
+    if(timedOut)throw new LinkImportError('timeout','网页读取超时。');
+    if(e instanceof LinkImportError)throw e;
+    throw new LinkImportError('network','网络或网页访问权限阻止了直接读取。');
+  }finally{clearTimeout(timer);signal?.removeEventListener('abort',abort);}
+}
+function setImportSource(url){
+  $('importSource').hidden=!url;
+  if(url){$('importSourceLink').href=url;$('importSourceLink').textContent=new URL(url).hostname+' · 查看原文';}
+}
+function prepareLinkTools(url){
+  lastLinkUrl=url||'';$('openSourceLink').hidden=!url;
+  if(url)$('openSourceLink').href=url;
+}
+function reportLinkError(error){
+  const code=error?.code;
+  const messages={
+    verification:'原文需要验证，自动读取暂时无法获取正文。打开原文后，可用下方“网页导入”或“粘贴正文”继续。',
+    login:'原文需要登录。请先在原网页正常登录，再从该页面导入正文。',
+    limited:'读取服务访问频繁。稍后可重试，也可直接从已打开的原文导入。',
+    timeout:'网页响应较慢，本次未读完。可以重试，或打开原文继续导入。',
+    blocked:'网页拒绝自动读取，或链接内容已失效。请打开原文确认后继续导入。',
+    long:'网页内容较长。打开原文后选中通知正文，再用“网页导入”或复制正文。',
+    empty:'未读到正文。请打开原文加载完成后，使用网页导入或粘贴正文。',
+    internal:'这是校内或本机网页。请在能正常打开该页面的浏览器中，使用网页导入或粘贴正文。'
+  };
+  $('fetchStatus').textContent=messages[code]||'自动读取暂未成功。可以重试，也可直接从已打开的原文继续导入。';
+  $('linkTools').open=true;
+}
+function stageImportedContent({text,url='',title='',source='网页'}={}){
+  try{
+    linkRead?.abort();
+    if(typeof text!=='string')throw new LinkImportError('empty');
+    const parsed=parseImportedPage(text,'text/plain');
+    let sourceUrl='';if(url){const u=new URL(url);if(/^https?:$/.test(u.protocol))sourceUrl=u.href;}
+    const heading=typeof title==='string'?title.trim().slice(0,200):'';
+    const content=heading&&!parsed.includes(heading)&&parsed.length+heading.length+2<=MAX_IMPORT_LENGTH?heading+'\n\n'+parsed:parsed;
+    pendingImport={text:content,url:sourceUrl};
+    setMode('link');$('importPreview').hidden=false;$('importedText').value=content;
+    const label=source==='browser-reader'?'原网页正文':source;
+    $('previewInfo').textContent=`${label}已载入 ${content.length.toLocaleString()} 字，请核对后确认。`;
+    $('btnUseImported').textContent=$('src').value.trim()?'确认替换并提炼':'确认并提炼';
+    $('fetchStatus').style.display='block';$('fetchStatus').textContent='正文已收到，确认前不会替换当前通知。';
+    $('importPreview').scrollIntoView({block:'nearest',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+    return true;
+  }catch(e){reportLinkError(e);return false;}
+}
+async function readNoticeLink(){
+  if(linkRead){linkRead.abort();$('fetchStatus').textContent='已取消读取，可修改链接后重试。';return;}
+  let url;try{url=extractNoticeUrl($('urlInput').value);}catch(e){$('fetchStatus').style.display='block';$('fetchStatus').textContent=e.message;return;}
+  $('urlInput').value=url;prepareLinkTools(url);
+  $('inputStatus').textContent='';
+  pendingImport=null;$('importPreview').hidden=true;
+  $('fetchStatus').style.display='block';
+  if(isInternalUrl(url)){reportLinkError(new LinkImportError('internal'));return;}
+  const generation=importGeneration,draft=$('src').value,ctrl=new AbortController();linkRead=ctrl;
+  $('btnFetch').textContent='取消读取';$('panel-link').setAttribute('aria-busy','true');
+  $('fetchStatus').textContent='正在读取正文，可随时取消…';
+  let progressTimer=setTimeout(()=>{if(linkRead===ctrl)$('fetchStatus').textContent='页面仍在加载，正在提取正文… 可点击“取消读取”。';},8000);
+  try{
+    // Hash routes need a rendered page; plain HTTP cannot carry the fragment.
+    const withHash=!!new URL(url).hash;
+    const attempts=[];
+    if(!withHash)attempts.push(fetchPageText(url,{signal:ctrl.signal,timeout:7000}));
+    attempts.push(fetchPageText(withHash?'https://r.jina.ai/':'https://r.jina.ai/'+url,{
+        signal:ctrl.signal,timeout:25000,
+        ...(withHash?{method:'POST',body:new URLSearchParams({url})}:{})
+      }));
+    let text;
+    try{text=await Promise.any(attempts);}
+    catch(aggregate){
+      const errors=aggregate.errors||[aggregate];
+      const priority=['verification','login','long','blocked','limited','empty','timeout','unavailable','network'];
+      throw errors.sort((a,b)=>priority.indexOf(a.code)-priority.indexOf(b.code))[0];
+    }
+    if(ctrl.signal.aborted||generation!==importGeneration)return;
+    if($('src').value!==draft){stageImportedContent({text,url,source:'链接正文'});return;}
+    fillText(text,true);setImportSource(url);$('inputStatus').textContent='已读取并提炼通知，请核对关键时间与要求。';
+    $('fetchStatus').textContent='正文读取成功。';
+  }catch(e){
+    if(ctrl.signal.aborted||generation!==importGeneration)return;
+    reportLinkError(e);
+  }finally{
+    clearTimeout(progressTimer);ctrl.abort();
+    if(linkRead===ctrl){linkRead=null;$('btnFetch').textContent='读取并提炼';$('panel-link').removeAttribute('aria-busy');}
+  }
+}
+$('btnFetch').addEventListener('click',readNoticeLink);
+$('urlInput').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();readNoticeLink();}});
+$('urlInput').addEventListener('input',()=>{
+  if(linkRead){linkRead.abort();$('fetchStatus').textContent='链接已修改，上次读取已取消。';}
+  try{prepareLinkTools(extractNoticeUrl($('urlInput').value));}catch{prepareLinkTools('');}
 });
+$('pasteLinkText').addEventListener('click',async()=>{
+  try{
+    const text=(await navigator.clipboard.readText()).trim();
+    if(!text){toast('剪贴板没有文字，请先在原文复制正文。');return;}
+    let onlyLink=false;try{const url=extractNoticeUrl(text);onlyLink=text.replace(/[\s<>]/g,'')===url.replace(/[\s<>]/g,'')||/^https?:\/\/\S+$/.test(text);}catch{}
+    if(onlyLink){toast('剪贴板里仍是网址，请在原网页复制通知正文。');return;}
+    stageImportedContent({text,url:lastLinkUrl,source:'剪贴板正文'});
+  }catch{setMode('text');$('src').focus();$('inputStatus').textContent='请在输入框粘贴已复制的通知正文（Ctrl / Command + V）。';}
+});
+$('choosePageFile').addEventListener('click',()=>$('pageFileInput').click());
+$('pageFileInput').addEventListener('change',async e=>{
+  const file=e.target.files?.[0];e.target.value='';if(!file)return;
+  try{
+    if(!/\.(?:html?|txt|md)$/i.test(file.name))throw new Error('请选择保存的网页 HTML，或 TXT / Markdown 文本文件。');
+    if(file.size>8*1024*1024)throw new Error('文件较大，请在原文选中正文后导入。');
+    const raw=decodeImportedBytes(await file.arrayBuffer()),text=/\.html?$/i.test(file.name)?parseImportedPage(raw,'text/html'):parseImportedPage(raw,'text/plain');
+    stageImportedContent({text,source:'文件正文'});
+  }catch(e){$('fetchStatus').style.display='block';$('fetchStatus').textContent=e.message;}
+});
+$('btnUseImported').addEventListener('click',()=>{
+  if(!pendingImport)return;
+  try{
+    const text=parseImportedPage($('importedText').value,'text/plain');
+    const url=pendingImport.url;pendingImport=null;$('importPreview').hidden=true;
+    fillText(text,true);setImportSource(url);$('inputStatus').textContent='已确认正文并完成提炼，请核对关键要求。';
+    $('fetchStatus').textContent='正文已确认并完成提炼，可继续导入其他通知。';
+  }catch(e){$('previewInfo').textContent=e.message;}
+});
+$('btnDiscardImported').addEventListener('click',()=>{pendingImport=null;$('importPreview').hidden=true;$('fetchStatus').textContent='已取消导入，原通知保持不变。';});
+$('btnClear').addEventListener('click',()=>{
+  linkRead?.abort();pendingImport=null;$('importPreview').hidden=true;setImportSource('');prepareLinkTools('');
+});
+
 let tesseractLoading=null;
 function loadTesseract(){
   if(window.Tesseract)return Promise.resolve();
@@ -603,6 +785,192 @@ $('btnClear').addEventListener('click',()=>{
   importGeneration++;
   imageItems.forEach(it=>URL.revokeObjectURL(it.url));imageItems=[];recognizedText='';renderImages();setOcrBar(false,0,'');$('btnUseOcr').hidden=true;
 });
+
+</script>
+<script>
+'use strict';
+
+/* A user-initiated bridge from an article already visible in their browser.
+   No article body is put in a URL or storage. The importer still asks for confirmation. */
+(() => {
+  const bookmark = document.getElementById('readerBookmark');
+  const copyButton = document.getElementById('copyReaderCode');
+  const status = document.getElementById('readerHelperStatus');
+  const say = message => { if (status) status.textContent = message; };
+  const httpOrigin = value => {
+    try {
+      const parsed = new URL(value);
+      return /^https?:$/.test(parsed.protocol) ? parsed.origin : null;
+    } catch { return null; }
+  };
+
+  // This function is serialized into the bookmark URL and runs on the article page.
+  function readVisibleArticle(config) {
+    const key = '__noticeTranslatorReaderBridge';
+    if (window[key] && window[key].popup && !window[key].popup.closed) {
+      try { window[key].popup.focus(); } catch {}
+      return;
+    }
+    if (window[key] && typeof window[key].cancel === 'function') window[key].cancel();
+    if (!/^https?:$/.test(location.protocol)) {
+      alert('请在浏览器打开 HTTP 或 HTTPS 原文网页，再点击收藏夹里的“通知转待办”。PDF、浏览器内置页或本地文件请复制文字后粘贴。');
+      return;
+    }
+    let text = String(window.getSelection ? window.getSelection().toString() : '').trim();
+    if (!text) {
+      const selectors = ['#js_content', '.rich_media_content', 'article', 'main', '[role="main"]', 'body'];
+      for (const selector of selectors) {
+        const node = document.querySelector(selector);
+        const visibleText = node && node.getClientRects().length && typeof node.innerText === 'string' ? node.innerText.trim() : '';
+        if (visibleText) { text = visibleText; break; }
+      }
+    }
+    text = text.replace(/\u00a0/g, ' ').replace(/\n{3,}/g, '\n\n').trim();
+    if (!text) {
+      alert('没有读到已显示的正文。请先完成网页正常登录或验证、展开原文，或选中文字后再试。');
+      return;
+    }
+    if (text.length > 200000) {
+      alert('当前页面文字较多，请只选中通知正文，再点击收藏夹工具。');
+      return;
+    }
+    const copyFallback = reason => {
+      const manualCopy = () => window.prompt(reason + '\n请复制下面的正文，返回“通知视译”粘贴；原草稿不会被覆盖。', text);
+      if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+        navigator.clipboard.writeText(text).then(
+          () => alert(reason + '\n正文已复制，请返回“通知视译”粘贴并核对。'),
+          manualCopy
+        );
+      } else manualCopy();
+    };
+    if (!config.target) {
+      copyFallback('本地文件版不能稳定跨网页导入；网站上传后可使用直接导入。');
+      return;
+    }
+    if (!window.crypto || typeof window.crypto.getRandomValues !== 'function') {
+      copyFallback('当前浏览器不支持安全传回。');
+      return;
+    }
+    const articleUrl = new URL(location.href);
+    articleUrl.username = '';
+    articleUrl.password = '';
+    const token = Array.from(crypto.getRandomValues(new Uint8Array(16)), value => value.toString(16).padStart(2, '0')).join('');
+    const target = new URL(config.target);
+    target.hash = 'reader=' + token;
+    let popup, interval, deadline, finished = false;
+    const cleanup = () => {
+      finished = true;
+      clearInterval(interval);
+      clearTimeout(deadline);
+      window.removeEventListener('message', onMessage);
+      if (window[key] && window[key].cancel === cleanup) delete window[key];
+    };
+    const fail = reason => { if (!finished) { cleanup(); copyFallback(reason); } };
+    const payload = {
+      type: 'notice-reader:content', token, sourceOrigin: location.origin,
+      url: articleUrl.href, title: String(document.title || '').trim().slice(0, 200),
+      text, source: 'browser-reader'
+    };
+    function onMessage(event) {
+      const data = event.data;
+      if (finished || !popup || event.source !== popup || event.origin !== target.origin || !data || data.token !== token) return;
+      if (data.type === 'notice-reader:ready') {
+        popup.postMessage(payload, target.origin);
+      } else if (data.type === 'notice-reader:ack') {
+        cleanup();
+        try { popup.focus(); } catch {}
+      } else if (data.type === 'notice-reader:error') {
+        fail('通知视译暂未接收正文，请改用复制粘贴。');
+      }
+    }
+    window.addEventListener('message', onMessage);
+    try { popup = window.open(target.href, 'notice-translator-reader-' + token); } catch {}
+    if (!popup) { fail('浏览器阻止了新窗口，请允许弹出窗口，或直接粘贴正文。'); return; }
+    window[key] = { cancel: cleanup, popup };
+    const hello = () => {
+      if (finished) return;
+      if (popup.closed) { fail('接收窗口已关闭。'); return; }
+      try {
+        popup.postMessage({ type: 'notice-reader:hello', token, sourceOrigin: location.origin, url: articleUrl.href }, target.origin);
+      } catch { /* The receiver may still be loading. The bounded retry handles it. */ }
+    };
+    interval = setInterval(hello, 700);
+    deadline = setTimeout(() => fail('等待接收超时。网页可能限制了窗口通信，请复制正文后粘贴。'), 45000);
+    hello();
+  }
+
+  const current = new URL(location.href);
+  const online = /^https?:$/.test(current.protocol);
+  current.search = '';
+  current.hash = '';
+  const code = 'javascript:' + encodeURIComponent('(' + readVisibleArticle.toString() + ')(' + JSON.stringify({ target: online ? current.href : null }) + ');void(0)');
+  if (bookmark) {
+    bookmark.href = code;
+    bookmark.draggable = true;
+    bookmark.addEventListener('click', event => {
+      event.preventDefault();
+      say(online
+        ? '请把“通知转待办”拖到浏览器收藏夹；打开通知原文、完成正常验证后点击它。也可先选中需要的文字。'
+        : '当前是本地文件版。可拖到收藏夹后在原文页点击，复制正文回此处粘贴；上传网站后支持直接传回。');
+    });
+  }
+  if (copyButton) copyButton.addEventListener('click', async () => {
+    try {
+      if (!navigator.clipboard || !navigator.clipboard.writeText) throw Error();
+      await navigator.clipboard.writeText(code);
+      say('收藏工具代码已复制。新建一个浏览器书签，把代码粘贴到“网址”栏；在原文页面点击该书签。');
+    } catch {
+      const copied = window.prompt('请复制下面的代码，新建书签并粘贴到“网址”栏：', code);
+      say(copied === null ? '也可把“通知转待办”直接拖到浏览器收藏夹。' : '保存书签后，在原文页面点击它；手机浏览器不支持时请直接复制正文。');
+    }
+  });
+  if (!online) say('本地文件版请先复制正文再粘贴；上传网站后，收藏工具可直接传回正文。');
+
+  const tokenMatch = /^#reader=([a-f0-9]{32})$/.exec(location.hash);
+  if (!location.hash.startsWith('#reader=')) return;
+  try { history.replaceState(history.state, '', location.pathname + location.search); } catch {}
+  if (!tokenMatch || !online) {
+    say('导入会话无效。请从原文页面重新点击收藏工具，或复制正文后粘贴。');
+    return;
+  }
+  const token = tokenMatch[1], opener = window.opener;
+  let finished = false, peer = null, peerOrigin = null;
+  const cleanup = () => { finished = true; clearTimeout(timeout); window.removeEventListener('message', receive); };
+  const send = (target, origin, type) => { try { target.postMessage({ type, token }, origin); } catch {} };
+  function receive(event) {
+    const data = event.data;
+    if (finished || !data || typeof data !== 'object' || Array.isArray(data) || data.token !== token || !event.source || event.source === window) return;
+    if (opener && event.source !== opener) return;
+    if (!['notice-reader:hello', 'notice-reader:content'].includes(data.type)) return;
+    if (typeof data.url !== 'string' || data.url.length > 8192 || data.sourceOrigin !== event.origin || httpOrigin(data.url) !== event.origin) return;
+    if (peer && (event.source !== peer || event.origin !== peerOrigin)) return;
+    peer = event.source;
+    peerOrigin = event.origin;
+    if (data.type === 'notice-reader:hello') {
+      send(peer, peerOrigin, 'notice-reader:ready');
+      return;
+    }
+    if (typeof data.text !== 'string' || !data.text.trim() || data.text.length > 200000 || typeof data.title !== 'string' || data.title.length > 200) return;
+    try {
+      if (typeof window.stageImportedContent !== 'function') throw Error('Importer unavailable');
+      const staged = window.stageImportedContent({ text: data.text, url: data.url, title: data.title, source: 'browser-reader' });
+      if (staged === false) throw Error('Article was not accepted');
+      say('原文正文已收到，请在导入预览中核对并确认；当前草稿尚未替换。');
+      send(peer, peerOrigin, 'notice-reader:ack');
+    } catch {
+      say('正文暂未导入，请复制原文后粘贴。');
+      send(peer, peerOrigin, 'notice-reader:error');
+    }
+    cleanup();
+  }
+  const timeout = setTimeout(() => {
+    cleanup();
+    say('未收到正文，请回原文重新点击收藏工具，或直接复制正文后粘贴。');
+  }, 60000);
+  window.addEventListener('message', receive);
+  window.addEventListener('pagehide', cleanup, { once: true });
+  say('正在接收你在原文页面选择的正文，收到后需核对确认。');
+})();
 
 </script>
 </body>
